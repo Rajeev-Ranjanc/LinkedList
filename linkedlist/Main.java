@@ -45,6 +45,9 @@ public class Main {
         second.insertLast(4);
         second.display();
 
+        LL ans = LL.merge(first,second);
+        ans.display();
+
 
 
     }
