@@ -2,6 +2,8 @@
 package linkedlist;
 
 
+import java.awt.*;
+
 /*
 Singly linked list
  */
@@ -151,7 +153,7 @@ public class LL {
         ListNode temp = head;
 //        System.out.print("linked list elements are:");
         while (temp != null) {
-            System.out.print(temp.value + " ->");
+            System.out.print(temp.value + " -> ");
             temp = temp.next;
         }
         System.out.println("End");
@@ -210,6 +212,35 @@ public class LL {
             node = node.next;
         }
         return count;
+    }
+
+    //merge two sorted list
+    public static LL merge(LL first, LL second) {
+        ListNode f = first.head;
+        ListNode s = second.head;
+
+        LL ans = new LL();
+
+
+        while (f != null && s != null) {
+            if (f.value < s.value) {
+                ans.insertLast(f.value);
+                f = f.next;
+            } else {
+                ans.insertLast(s.value);
+                s = s.next;
+            }
+        }
+
+        while (f != null) {
+            ans.insertLast(f.value);
+            f = f.next;
+        }
+        while (s != null) {
+            ans.insertLast(s.value);
+            s = s.next;
+        }
+        return ans;
     }
 
 }
