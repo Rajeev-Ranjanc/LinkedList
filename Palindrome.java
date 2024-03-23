@@ -1,4 +1,7 @@
 public class Palindrome {
+    /*
+    this codes
+     */
     private Node head;
 
     public void insert(int value) {
