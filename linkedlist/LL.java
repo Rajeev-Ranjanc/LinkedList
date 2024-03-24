@@ -244,6 +244,56 @@ public class LL {
         /*
         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
          */
+
+
+    }
+
+    //hascycle
+    //https://leetcode.com/problems/linked-list-cycle/
+    public static boolean hasCycle(ListNode head) {
+        if (head == null) {
+            return false;
+
+        }
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            if (slow == fast) {
+                return true;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return false;
+    }
+
+    //length of the cycle
+//    https://www.geeksforgeeks.org/problems/find-length-of-loop/1
+    public static int lengthCycle(ListNode head) {
+        int length = 0;
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+
+                ListNode temp = slow;
+
+                while (temp.next != fast) {
+
+                    length++;
+                    temp = temp.next;
+                }
+
+                return length;
+            }
+        }
+        return length;
     }
 
 }
