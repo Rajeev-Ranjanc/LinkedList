@@ -1,3 +1,5 @@
+import linkedlist.LL;
+
 //https://leetcode.com/problems/linked-list-cycle/
 class ListNode {
     int val;
@@ -30,6 +32,35 @@ public class CycleList {
             fast = fast.next.next;
         }
         return false;
+    }
+
+
+//    https://www.geeksforgeeks.org/problems/find-length-of-loop/1
+    public static int lengthCycle(ListNode head) {
+        int length = 0;
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+
+                ListNode temp = slow;
+
+                while (temp.next != fast) {
+
+                    length++;
+                    temp = temp.next;
+                }
+
+                return length+1;
+            }
+        }
+        return length;
     }
 
 }
