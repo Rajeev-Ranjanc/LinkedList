@@ -80,43 +80,69 @@ public class RemoveDuplicates {
         }
     }
 
+//    https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
+    public void deleteDuplicates2() {
+
+
+    }
+
     //    https://www.geeksforgeeks.org/problems/finding-middle-element-in-a-linked-list/1
     public int getMiddle() {
         // Your code here.
-        //wrong
         if(head.next == null){
+
             return head.val;
+
         }
+
+
         ListNode slow = head;
+
         ListNode fast = head;
 
         while (fast != null && fast.next != null) {
+
             slow = slow.next;
+
             fast = fast.next.next;
+
         }
         assert slow != null;
-            int ans = slow.val;
+
+        int ans = slow.val;
+
         return ans;
     }
 
     public static void main(String[] args) {
         RemoveDuplicates ll = new RemoveDuplicates();
+//        ll.insertFirst(1);
+//        ll.insertLast(1);
+//        ll.insertLast(1);
+//        ll.insertLast(2);
+//        ll.insertLast(222);
+//        ll.insertLast(4);
+//        ll.insertLast(4);
+//        ll.insertLast(5);
+//        ll.insertLast(5);
         ll.insertFirst(1);
-        ll.insertLast(1);
-        ll.insertLast(1);
-        ll.insertLast(2);
-        ll.insertLast(222);
-        ll.insertLast(4);
-        ll.insertLast(4);
-        ll.insertLast(5);
-        ll.insertLast(5);
+        ll.insertFirst(2);
+        ll.insertFirst(3);
+        ll.insertFirst(3);
+        ll.insertFirst(4);
+        ll.insertFirst(4);
+        ll.insertFirst(5);
 
 
 //        ll.display();
 //        ll.deleteDuplicates();
 //        ll.display();
 
-        System.out.println(ll.getMiddle());
+//        System.out.println(ll.getMiddle());
+
+        ll.display();
+        ll.deleteDuplicates2();
+        ll.display();
 
     }
 
