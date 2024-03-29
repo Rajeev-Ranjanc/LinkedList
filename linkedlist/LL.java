@@ -1,6 +1,8 @@
 package linkedlist;
 
 
+import org.w3c.dom.Node;
+
 import java.awt.*;
 
 /*
@@ -168,6 +170,10 @@ public class LL {
             this.value = value;
         }
 
+        public ListNode() {
+
+        }
+
         public ListNode(int value, ListNode next) {
             this.value = value;
             this.next = next;
@@ -329,4 +335,54 @@ public class LL {
         //any one first or second
         return second;
     }
+
+    //prerequisite recursion playlist kunal
+    /*merge sort is lying here /Users/rajeevranjan/Desktop/NIT/LinkedList/Merge.java
+        on that question to sort that linked list we are applying bubble sort
+     */
+    private void bubblesort() {
+        bubblesort(size - 1, 0);
+    }
+
+
+    //    prerequisite bubble sort in recursion
+    private void bubblesort(int row, int col) {
+        if (row == 0) {
+            return;
+        }
+        if (col < row) {
+            ListNode first = get(col);
+            ListNode second = get(col + 1);
+            if (first.value > second.value) {
+                //do swap
+                //and for swapping we have 3 condition we are at the starting middle and at last position of the linked list
+                if (first == head) {
+
+                }
+            }
+
+        }
+    }
+
+
+    //    this problem is to remove the given elements from the linked list
+//    https://leetcode.com/problems/remove-linked-list-elements/
+    public void removeElements(int val) {
+
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode prev = dummy;
+        ListNode current = head;
+        while (current!=null){
+            if(current.value == val){
+                prev.next = current.next;
+            }
+            else {
+                prev = current;
+            }
+            current = current.next;
+        }
+        return;
+    }
+
 }
