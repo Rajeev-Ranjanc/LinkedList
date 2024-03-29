@@ -34,22 +34,36 @@ public class Main {
 //        list.display();
 
 //        System.out.println(list.getNthFromLast(1));
-        LL first = new LL();
-        LL second = new LL();
-        first.insertLast(1);
-        first.insertLast(2);
-        first.insertLast(4);
+//        LL first = new LL();
+//        LL second = new LL();
+//        first.insertLast(1);
+//        first.insertLast(2);
+//        first.insertLast(4);
+//
+//        first.display();
+//
+//        second.insertLast(1);
+//        second.insertLast(3);
+//        second.insertLast(4);
+//        second.display();
+//
+//        LL ans = LL.merge(first,second);
+//        ans.display();
 
-        first.display();
 
-        second.insertLast(1);
-        second.insertLast(3);
-        second.insertLast(4);
-        second.display();
+        LL remove = new LL();
+        remove.insertLast(7);
+        remove.insertLast(7);
+        remove.insertLast(7);
+        remove.insertLast(7);
+        remove.insertLast(7);
+        remove.insertLast(7);
+//        remove.insertLast(6);
 
-        LL ans = LL.merge(first,second);
-        ans.display();
+        remove.display();
 
+        remove.removeElements(7);
+        remove.display();
 
 
     }
