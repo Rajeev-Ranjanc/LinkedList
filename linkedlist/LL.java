@@ -3,7 +3,7 @@ package linkedlist;
 
 import org.w3c.dom.Node;
 
-import java.awt.*;
+import java.util.List;
 
 /*
 Singly linked list
@@ -16,6 +16,7 @@ public class LL {
     //size is to count the no of node present in the linked list
 //    private int size;
     public int size;
+    private ListNode prevNode;
 
     public LL() {
         this.size = 0;
@@ -373,16 +374,72 @@ public class LL {
         dummy.next = head;
         ListNode prev = dummy;
         ListNode current = head;
-        while (current!=null){
-            if(current.value == val){
+        while (current != null) {
+            if (current.value == val) {
                 prev.next = current.next;
-            }
-            else {
+            } else {
                 prev = current;
             }
             current = current.next;
         }
-        return;
     }
 
+    //    remove every kth node of linked list
+//    https://www.geeksforgeeks.org/problems/remove-every-kth-node/1
+    /*You are required to complete this method*/
+
+
+    public void reverse() {
+
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        ListNode prevNode = null;
+
+        ListNode currNode = head;
+
+        ListNode nextNode = head;
+
+        while (nextNode != null) {
+
+            nextNode = nextNode.next;
+
+            currNode.next = prevNode;
+
+            prevNode = currNode;
+
+            currNode = nextNode;
+
+        }
+
+        head = prevNode;
+    }
+
+    //    https://leetcode.com/problems/remove-nodes-from-linked-list/?envType=daily-question&envId=2024-05-06
+    public ListNode removeNodes(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        ListNode newHead = removeNodes(head.next);
+        if(head.value<newHead.value){
+            //
+//            delete(head);
+            return newHead;
+        }
+        else{
+            head.next = newHead;
+            return head;
+        }
+
+
+
+
+    }
+
+
 }
+
+
+

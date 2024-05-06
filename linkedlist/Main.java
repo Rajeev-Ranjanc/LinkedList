@@ -51,19 +51,42 @@ public class Main {
 //        ans.display();
 
 
-        LL remove = new LL();
-        remove.insertLast(7);
-        remove.insertLast(7);
-        remove.insertLast(7);
-        remove.insertLast(7);
-        remove.insertLast(7);
-        remove.insertLast(7);
-//        remove.insertLast(6);
+//        LL remove = new LL();
+//        remove.insertLast(7);
+//        remove.insertLast(7);
+//        remove.insertLast(7);
+//        remove.insertLast(7);
+//        remove.insertLast(7);
+//        remove.insertLast(7);
+////        remove.insertLast(6);
+//
+//        remove.display();
+//
+//        remove.removeElements(7);
+//        remove.display();
 
-        remove.display();
 
-        remove.removeElements(7);
-        remove.display();
+        LL rem = new LL();
+        rem.insertLast(5);
+        rem.insertLast(2);
+        rem.insertLast(13);
+        rem.insertLast(3);
+        rem.insertLast(8);
+
+
+        rem.display();
+
+//      Reverse the array
+
+//        rem.reverse();
+
+//        rem.display();
+        //I'm doing this
+        rem.removeNodes();
+
+//        rem.reverse();
+
+        rem.display();
 
 
     }
