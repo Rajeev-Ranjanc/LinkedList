@@ -418,26 +418,64 @@ public class LL {
 
     //    https://leetcode.com/problems/remove-nodes-from-linked-list/?envType=daily-question&envId=2024-05-06
     public ListNode removeNodes(ListNode head) {
-        if(head == null || head.next == null){
+        //using recursion
+
+
+        if (head == null || head.next == null) {
             return head;
         }
 
         ListNode newHead = removeNodes(head.next);
-        if(head.value<newHead.value){
-            //
+
+        if (head.value < newHead.value) {
+
 //            delete(head);
+
             return newHead;
-        }
-        else{
+
+        } else {
             head.next = newHead;
             return head;
         }
 
 
-
-
     }
 
+
+//    https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/?envType=daily-question&envId=2024-05-07
+//    https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/
+    /*
+        what a felling bro Just Amazing Feels Awesome
+        In this Problem First fo all reversed the Linked list traversed the entire linked list
+        using a temporary pointer and while traversing the linked list and I get the data of every node and multiplied by 2 and
+        added carry variable into them which is initialised out of while loop and store a carry into them and divided that
+        variable by 10 and store result into them and keep updating the node value before moving to the next node and after
+        traversing the entire list again reversed them and after that made a single check is carry greater than 0 if yes then
+         created the node and append it to the starting of the linked list and simply returned the head pointer
+     */
+    public void doubleIt() {
+
+        reverse();
+        ListNode temp = head;
+        int carry = 0;
+        while (temp != null) {
+
+            int data = temp.value * 2 + carry;
+            carry = data / 10;
+            data %= 10;
+
+            temp.value = data;
+            temp = temp.next;
+        }
+        reverse();
+        if(carry>0){
+            ListNode node = new ListNode(carry);
+            node.next = head;
+            head = node;
+        }
+
+
+    }//double it
 
 }
 

@@ -67,14 +67,13 @@ public class Main {
 
 
         LL rem = new LL();
-        rem.insertLast(5);
-        rem.insertLast(2);
-        rem.insertLast(13);
-        rem.insertLast(3);
-        rem.insertLast(8);
+        rem.insertLast(9);
+        rem.insertLast(9);
+        rem.insertLast(9);
 
 
-        rem.display();
+
+//        rem.display();
 
 //      Reverse the array
 
@@ -82,9 +81,11 @@ public class Main {
 
 //        rem.display();
         //I'm doing this
-        rem.removeNodes();
+//        rem.removeNodes(rem.head);
 
 //        rem.reverse();
+
+        rem.doubleIt();
 
         rem.display();
 
