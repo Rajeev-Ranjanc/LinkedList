@@ -7,7 +7,9 @@
     node of the linked list
  */
 package linkedlist;
+
 import java.util.ArrayList;
+import java.util.List;
 
 class Link {
     class Node {
@@ -61,7 +63,7 @@ class Link {
             arr[index++] = odd.get(i++);
         }
 
-        System.out.println(even+" "+odd);
+        System.out.println(even + " " + odd);
         //Now operation in linked list
         temp = head;
         index = 0;
@@ -81,9 +83,11 @@ class Link {
             head = newNode;
             return;
         }
-
-        newNode.next = head;
-        head = newNode;
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
 
 
     }
@@ -104,25 +108,100 @@ class Link {
         System.out.println("end");
     }
 
+
+    //    https://leetcode.com/problems/odd-even-linked-list/
+//      https://www.geeksforgeeks.org/problems/rearrange-a-linked-list/1
+    /*
+            To solve this i have defined two head nodes one is for the odd numbers and other is for the even numbers
+            and declare two odd and even variables to traverse the linked list. one itt var is also declared to count
+            the indexes like odd or even and if itt is even then added that node into even numbers otherwise into odd
+            linked list and till we came up creating two linked list, and finally I linked even linked list with odd list,
+            and we connect head with next part of even head(evenDummy)
+
+     */
+    void rearrangeEvenOdd(Node head) {
+        //  The task is to complete this method
+        Node oddDummy = new Node(-1);
+        Node evenDummy = new Node(-1);
+        Node odd = oddDummy;
+        Node even = evenDummy;
+        int itt = 0;
+        Node temp = head;
+
+        while (temp != null) {
+
+            if (itt % 2 == 0) {
+
+                even.next = temp;
+                even = even.next;
+
+            } else {
+
+                odd.next = temp;
+                odd = odd.next;
+
+            }
+
+            temp = temp.next;
+            itt++;
+
+        }
+
+        //for odd numbers before
+//        even.next = null;
+//        odd.next = evenDummy.next;
+//        head = oddDummy.next;
+
+//        print(head);
+//
+        //for even numver before
+
+        odd.next = null;
+        even.next = oddDummy.next;
+        head = evenDummy.next;
+
+
+        print(head);
+
+
+    }
+
+
+    public void print(Node node) {
+        Node temp = node;
+
+        while (temp != null) {
+            System.out.print(temp.data + "->");
+            temp = temp.next;
+
+        }
+        System.out.println("end");
+    }
+
 }
 
-
-//https://leetcode.com/problems/odd-even-linked-list/
 
 public class SegerateOddEven {
 
     public static void main(String[] args) {
-
+/*
+[2,1,3,5,6,4,7]
+ */
         Link link = new Link();
-        link.insertFirst(7);
-        link.insertFirst(5);
-        link.insertFirst(3);
+        link.insertFirst(0);
         link.insertFirst(1);
+        link.insertFirst(1);
+        link.insertFirst(0);
+
+        link.rearrangeEvenOdd(link.head);
 
 //        link.divide()
 
-        link.printLinkedList();
-        link.divide(4, link.head);
-        link.printLinkedList();
+//        link.printLinkedList();
+//
+//        link.divide(4, link.head);
+//
+//        link.printLinkedList();
+
     }
 }
