@@ -5,7 +5,9 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
 
-//        LL list = new LL();
+        LL list = new LL();
+
+
 //        list.insertFirst(17);
 //        list.insertFirst(8);
 //        list.insertFirst(2);
@@ -66,11 +68,10 @@ public class Main {
 //        remove.display();
 
 
-        LL rem = new LL();
-        rem.insertLast(9);
-        rem.insertLast(9);
-        rem.insertLast(9);
-
+//        LL rem = new LL();
+//        rem.insertLast(9);
+//        rem.insertLast(9);
+//        rem.insertLast(9);
 
 
 //        rem.display();
@@ -85,10 +86,21 @@ public class Main {
 
 //        rem.reverse();
 
-        rem.doubleIt();
+//        rem.doubleIt();
+//
+//        rem.display();
 
-        rem.display();
 
+//        Add one to the linked list
+        list.insertLast(9);
+        list.insertLast(9);
+        list.insertLast(9);
+
+//        list.reverse();
+
+        list.addOne();
+
+        list.display();
 
     }
 }

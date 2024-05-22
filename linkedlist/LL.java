@@ -442,7 +442,7 @@ public class LL {
     }
 
 
-//    https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/?envType=daily-question&envId=2024-05-07
+    //    https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/?envType=daily-question&envId=2024-05-07
 //    https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/
     /*
         what a felling bro Just Amazing Feels Awesome
@@ -468,7 +468,7 @@ public class LL {
             temp = temp.next;
         }
         reverse();
-        if(carry>0){
+        if (carry > 0) {
             ListNode node = new ListNode(carry);
             node.next = head;
             head = node;
@@ -476,6 +476,50 @@ public class LL {
 
 
     }//double it
+
+
+    //    https://www.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=add-1-to-a-number-represented-as-linked-list
+//   I need to add 1 to the linked list
+/*
+        Did by self isiliye mza aaya krk
+ */
+    public void addOne() {
+        //code here.
+
+        reverse();
+
+        ListNode temp = head;
+
+        int carry = 1;
+
+        while (temp != null) {
+
+            int bata = temp.value + carry;
+
+            carry = bata / 10;
+
+            bata %= 10;
+
+            temp.value = bata;
+            if (carry == 0) {
+                break;
+            }
+            temp = temp.next;
+
+        }
+
+        reverse();
+
+        if(carry > 0){
+
+            ListNode newNode = new ListNode(carry);
+            newNode.next = head;
+            head = newNode;
+
+        }
+
+    }
+
 
 }
 
